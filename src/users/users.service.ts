@@ -22,7 +22,12 @@ export class UsersService {
 
   findAllUsers() {
     try {
-      return this.usersRepository.find();
+      return this.usersRepository.find({
+        relations: [
+          'studentProfile.appointments',
+          'psychologistProfile.appointments'
+        ]
+      });
     } catch (error) {
       console.error('Error getting all Users', error);
       throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -39,7 +44,11 @@ export class UsersService {
   async findOneUserById(id: number) {
     try {
       const userFound = await this.usersRepository.findOne({
-        where: { id }
+        where: { id },
+        relations: [
+          'studentProfile.appointments',
+          'psychologistProfile.appointments'
+        ]
       });
       if (!userFound) {
         throw new HttpException('User not found', HttpStatus.NOT_FOUND);

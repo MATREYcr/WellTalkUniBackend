@@ -7,8 +7,8 @@ export class CreateAppointmentDto {
   date: string;
 
   @IsInt()
-  studentId: number;
+  student: number;
 
   @IsInt()
-  psychologistId: number;
+  psychologist: number;
 }

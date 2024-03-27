@@ -25,13 +25,13 @@ export class AuthService {
       if (userFound) {
         throw new HttpException('User alredy Exist', HttpStatus.INTERNAL_SERVER_ERROR);
       }
-      console.log(userType.STUDENT, "typeeeee");
-      if (profile instanceof CreateStudentProfileDto) {
-        console.log("Entroooo student");
-        typeprofile = 'studentProfile';
-        newProfile = await this.studentProfileService.createStudentProfile(profile);
-      }
-      if (user.userType === userType.PSYCHOLOGIST && profile instanceof CreatePsychologistProfileDto) {
+      // console.log(userType.STUDENT, "typeeeee");
+      // if (user.userType === userType.STUDENT && profile instanceof CreateStudentProfileDto === false) {
+      //   console.log("Entroooo student");
+      //   typeprofile = 'studentProfile';
+      //   newProfile = await this.studentProfileService.createStudentProfile(profile);
+      // }
+      if (user.userType === userType.PSYCHOLOGIST && profile instanceof CreatePsychologistProfileDto === false) {
         typeprofile = 'psychologistProfile';
         newProfile = await this.psychologistProfilesService.createPsychologistProfile(profile);
       }

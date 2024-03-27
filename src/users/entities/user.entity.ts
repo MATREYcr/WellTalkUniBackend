@@ -28,12 +28,12 @@ export class User {
   userType: userType;
 
 
-  @OneToOne(() => StudentProfile, { nullable: true })
+  @OneToOne(() => StudentProfile, { nullable: true, eager: true})
   @JoinColumn()
   studentProfile: StudentProfile;
 
   
-  @OneToOne(() => PsychologistProfile, { nullable: true })
+  @OneToOne(() => PsychologistProfile, { nullable: true, eager: true })
   @JoinColumn()
   psychologistProfile: PsychologistProfile;
 }

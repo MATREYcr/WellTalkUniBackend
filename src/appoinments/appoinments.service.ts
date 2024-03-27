@@ -18,9 +18,15 @@ export class AppoinmentsService {
 
   async createAppointment(createAppointmentDto: CreateAppointmentDto) {
     try {
-      await this.studentProfileService.findOneStudentProfile(createAppointmentDto.studentId);
-      await this.psychologistProfileService.findOnePsychologistProfile(createAppointmentDto.psychologistId);
-      const newAppointmentProfile = this.appointmentProfileRepository.create(createAppointmentDto);
+      console.log(createAppointmentDto, 'createappointment');
+      const studentProfile = await this.studentProfileService.findOneStudentProfile(createAppointmentDto.student);
+      const psychologistProfile = await this.psychologistProfileService.findOnePsychologistProfile(createAppointmentDto.psychologist);
+
+      const newAppointmentProfile = this.appointmentProfileRepository.create({
+        date: createAppointmentDto.date,
+        student: studentProfile,
+        psychologist: psychologistProfile
+      });
       return await this.appointmentProfileRepository.save(newAppointmentProfile);
     } catch (error) {
       console.error('Error creating Appointment', error);
