@@ -1,4 +1,4 @@
-import { IsString, IsInt, MinLength, MaxLength, IsOptional } from 'class-validator';
+import { IsString, IsInt, MinLength, MaxLength, IsOptional, IsNotEmpty, IsDateString } from 'class-validator';
 
 export class UpdateStudentProfileDto {
   @IsOptional()
@@ -34,4 +34,19 @@ export class UpdateStudentProfileDto {
   @MinLength(5, { message: 'Address is too short' })
   @MaxLength(100, { message: 'Address is too long' })
   readonly address?: string;
+
+  @IsString({ message: 'City must be a string' })
+  @IsNotEmpty({ message: 'City cannot be empty' })
+  readonly city: string;
+
+  @IsString({ message: 'Department must be a string' })
+  @IsNotEmpty({ message: 'Department cannot be empty' })
+  readonly department: string;
+
+  @IsString({ message: 'University must be a string' })
+  @IsNotEmpty({ message: 'University cannot be empty' })
+  readonly university: string;
+
+  @IsDateString()
+  readonly dateOfBirth: Date;
 }
