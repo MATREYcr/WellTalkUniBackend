@@ -48,11 +48,11 @@ export class AuthService {
     try {
       const userFound = await this.usersService.findOneUserByEmail(email);
       if (!userFound) {
-        throw new HttpException('Email is wrong', HttpStatus.NON_AUTHORITATIVE_INFORMATION);
+        throw new HttpException('Email is wrong', HttpStatus.INTERNAL_SERVER_ERROR);
       }
       const isPasswordValid = await bcryptjs.compare(password, userFound.password);
       if (!isPasswordValid) {
-        throw new HttpException('Password is wrong', HttpStatus.NON_AUTHORITATIVE_INFORMATION);
+        throw new HttpException('Password is wrong', HttpStatus.INTERNAL_SERVER_ERROR);
       }
       return userFound;
     } catch (error) {
