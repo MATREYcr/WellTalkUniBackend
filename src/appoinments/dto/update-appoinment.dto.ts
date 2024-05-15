@@ -13,6 +13,9 @@ export class UpdateAppointmentDto {
     @IsNotEmpty({ message: 'Date cannot be empty' })
     date?: string;
 
+    @IsNotEmpty({ message: 'Date cannot be empty' })
+    time?: string;
+
     @IsOptional()
     @IsEnum(UpdateAppointmentStatus, { message: 'Invalid appointment status' })
     status?: UpdateAppointmentStatus;

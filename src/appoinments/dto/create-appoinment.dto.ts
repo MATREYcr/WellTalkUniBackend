@@ -6,6 +6,9 @@ export class CreateAppointmentDto {
   @IsNotEmpty({ message: 'Date cannot be empty' })
   date: string;
 
+  @IsNotEmpty({ message: 'Date cannot be empty' })
+  time: string;
+
   @IsInt()
   student: number;
 

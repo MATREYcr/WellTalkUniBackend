@@ -19,6 +19,9 @@ export class Appointment {
   @IsNotEmpty({ message: 'Date cannot be empty' })
   date: string;
 
+  @IsNotEmpty({ message: 'Date cannot be empty' })
+  time: string;
+
   @Column({ default: AppointmentStatus.PENDING })
   @IsEnum(AppointmentStatus, { message: 'Invalid appointment status' })
   status: AppointmentStatus;
