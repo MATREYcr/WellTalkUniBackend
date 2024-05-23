@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
-import { IsNotEmpty, IsDateString, IsEnum } from 'class-validator';
+import { IsNotEmpty, IsDateString, IsEnum, IsString } from 'class-validator';
 import { StudentProfile } from 'src/student-profiles/entities/student-profile.entity';
 import { PsychologistProfile } from 'src/psychologist-profiles/entities/psychologist-profile.entity';
 
@@ -15,7 +15,7 @@ export class Appointment {
   id: number;
 
   @Column()
-  @IsDateString()
+  @IsString({ message: 'Date must be a string' })
   @IsNotEmpty({ message: 'Date cannot be empty' })
   date: string;
 

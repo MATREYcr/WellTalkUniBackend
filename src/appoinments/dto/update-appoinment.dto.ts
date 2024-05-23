@@ -1,5 +1,5 @@
 // update-appointment.dto.ts
-import { IsDateString, IsEnum, IsInt, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsDateString, IsEnum, IsInt, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 enum UpdateAppointmentStatus {
     PENDING = 'pending',
@@ -9,9 +9,9 @@ enum UpdateAppointmentStatus {
 
 export class UpdateAppointmentDto {
     @IsOptional()
-    @IsDateString()
+    @IsString({ message: 'Date must be a string' })
     @IsNotEmpty({ message: 'Date cannot be empty' })
-    date?: string;
+    date: string;
 
     @IsNotEmpty({ message: 'Date cannot be empty' })
     time?: string;
