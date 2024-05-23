@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsDateString } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsDateString, IsInt } from 'class-validator';
 
 export class UpdatePsychologistProfileDto {
     @IsOptional()
@@ -35,4 +35,12 @@ export class UpdatePsychologistProfileDto {
   
     @IsDateString()
     dateOfBirth?: Date;
+
+    @IsString({ message: 'Specialty must be a string' })
+    @IsNotEmpty({ message: 'Specialty cannot be empty' })
+    specialty: string
+
+    @IsInt({ message: 'Specialty must be a string' })
+    @IsNotEmpty({ message: 'Specialty cannot be empty' })
+    yearsExperience: number
 }

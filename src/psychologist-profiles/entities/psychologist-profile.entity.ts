@@ -1,6 +1,6 @@
 
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { IsString, IsNotEmpty, IsDateString } from 'class-validator';
+import { IsString, IsNotEmpty, IsDateString, IsInt } from 'class-validator';
 import { Appointment } from 'src/appoinments/entities/appoinment.entity';
 
 @Entity()
@@ -46,7 +46,17 @@ export class PsychologistProfile {
     @Column()
     @IsDateString()
     dateOfBirth: Date;
-    
+
+    @Column()
+    @IsString({ message: 'Specialty must be a string' })
+    @IsNotEmpty({ message: 'Specialty cannot be empty' })
+    specialty: string
+
+    @Column()
+    @IsInt({ message: 'Specialty must be a string' })
+    @IsNotEmpty({ message: 'Specialty cannot be empty' })
+    yearsExperience: number
+
     @OneToMany(() => Appointment, (appointment) => appointment.psychologist)
     appointments: Appointment[];
 }
