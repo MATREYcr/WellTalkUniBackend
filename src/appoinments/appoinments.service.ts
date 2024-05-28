@@ -24,6 +24,7 @@ export class AppoinmentsService {
 
       const newAppointmentProfile = this.appointmentProfileRepository.create({
         date: createAppointmentDto.date,
+        time: createAppointmentDto.time,
         student: studentProfile,
         psychologist: psychologistProfile
       });
