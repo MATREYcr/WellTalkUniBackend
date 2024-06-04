@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { IsNotEmpty, IsDateString, IsEnum, IsString } from 'class-validator';
-import { StudentProfile } from 'src/student-profiles/entities/student-profile.entity';
-import { PsychologistProfile } from 'src/psychologist-profiles/entities/psychologist-profile.entity';
+import { StudentProfile } from 'src/modules/profile/student-profiles/entities/student-profile.entity';
+import { PsychologistProfile } from 'src/modules/profile/psychologist-profiles/entities/psychologist-profile.entity';
 
 enum AppointmentStatus {
   PENDING = 'pending',

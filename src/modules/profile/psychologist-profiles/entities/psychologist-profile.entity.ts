@@ -1,7 +1,7 @@
 
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { IsString, IsNotEmpty, IsDateString, IsInt } from 'class-validator';
-import { Appointment } from 'src/appoinments/entities/appoinment.entity';
+import { Appointment } from 'src/modules/appoinments/entities/appoinment.entity';
 
 @Entity()
 export class PsychologistProfile {

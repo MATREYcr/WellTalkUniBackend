@@ -1,11 +1,11 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { RegisterUserDto } from './dto/register-user.dto';
-import { StudentProfilesService } from 'src/student-profiles/student-profiles.service';
-import { UsersService } from 'src/users/users.service';
-import { userType } from 'src/users/entities/user.entity';
-import { PsychologistProfilesService } from '../psychologist-profiles/psychologist-profiles.service';
-import { CreateStudentProfileDto } from 'src/student-profiles/dto/create-student-profile.dto';
-import { CreatePsychologistProfileDto } from 'src/psychologist-profiles/dto/create-psychologist-profile.dto';
+import { StudentProfilesService } from 'src/modules/profile/student-profiles/student-profiles.service';
+import { UsersService } from 'src/modules/users/users.service';
+import { userType } from 'src/modules/users/entities/user.entity';
+import { PsychologistProfilesService } from '../modules/profile/psychologist-profiles/psychologist-profiles.service';
+import { CreateStudentProfileDto } from 'src/modules/profile/student-profiles/dto/create-student-profile.dto';
+import { CreatePsychologistProfileDto } from 'src/modules/profile/psychologist-profiles/dto/create-psychologist-profile.dto';
 import * as bcryptjs from 'bcryptjs';
 import { LoginUserDto } from './dto/login-user.dto';
 

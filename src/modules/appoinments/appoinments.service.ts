@@ -4,8 +4,8 @@ import { Repository } from 'typeorm';
 import { Appointment } from './entities/appoinment.entity';
 import { CreateAppointmentDto } from './dto/create-appoinment.dto';
 import { UpdateAppointmentDto } from './dto/update-appoinment.dto';
-import { StudentProfilesService } from 'src/student-profiles/student-profiles.service';
-import { PsychologistProfilesService } from 'src/psychologist-profiles/psychologist-profiles.service';
+import { StudentProfilesService } from 'src/modules/profile/student-profiles/student-profiles.service';
+import { PsychologistProfilesService } from 'src/modules/profile/psychologist-profiles/psychologist-profiles.service';
 
 @Injectable()
 export class AppoinmentsService {
